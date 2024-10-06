@@ -1,0 +1,24 @@
+.profile {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.profile__add-btn {
+  margin-left: auto;
+}
+
+.profile__column {
+}
+
+.profile__name {
+}
+
+.profile__description {
+}
+
+.profile__edit-btn {
+}
+
+.profile__add-btn {
+}
