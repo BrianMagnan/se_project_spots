@@ -2,6 +2,7 @@
   max-width: 413px;
 }
 .card__title {
+  font-family: "Poppins-Medium", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;

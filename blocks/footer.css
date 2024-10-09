@@ -3,17 +3,11 @@
   justify-content: center;
 }
 .footer__copyright {
-  opacity: 0px;
-  font-family: Poppins;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 16px;
-  text-align: left;
   width: 104px;
-  height: 16px;
-
-  top: 1340px;
-  left: 668px;
-  gap: 0px;
-  opacity: 0px;
+  color: #212121;
+  opacity: 0.7;
 }
