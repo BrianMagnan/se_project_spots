@@ -1,12 +1,18 @@
 .card {
   max-width: 413px;
 }
+.card__title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
 
 .card__image {
   height: 413px;
   width: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 8px;
 }
 
 .card__content {
