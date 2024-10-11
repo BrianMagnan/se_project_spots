@@ -7,7 +7,8 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 16px;
-  width: 104px;
+  max-width: 104px;
   color: #212121;
   opacity: 0.7;
+  margin: 60px;
 }
