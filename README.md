@@ -24,4 +24,6 @@ https://github.com/BrianMagnan/se_project_spots
 
 ## Video
 
+This is a video presentation of my project
+
 https://www.dropbox.com/s/sz3zlskocjpj5qx/Tripleten%20Project%203.mov?dl=0
