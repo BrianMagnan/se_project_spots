@@ -1,12 +1,14 @@
 # Project 3: Spots
 
-# Spots
+## Spots
 
 An Image Sharing Site
 
 ## Description
 
-<!-- TODO describe the project and it's functionality. -->
+This is my project to replicate a web design from figma:
+
+https://www.figma.com/design/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project%3A-Spots?node-id=2-139&node-type=frame&t=7HauikDiAV1DY8ZE-0
 
 ## Tech Stack
 
@@ -18,6 +20,8 @@ An Image Sharing Site
 
 This webpage is deployed to Github Pages
 
-<!-- "Deployment Link" -->
+https://github.com/BrianMagnan/se_project_spots
 
-some new text
+## Video
+
+https://www.dropbox.com/s/sz3zlskocjpj5qx/Tripleten%20Project%203.mov?dl=0
