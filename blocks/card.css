@@ -57,6 +57,22 @@
   background-image: url(../images/Union-Hover.svg);
 }
 
+.card__delete-btn {
+  background-image: url(../images/Delete\ Icon.svg);
+  border: none;
+  background-color: transparent;
+  height: 32px;
+  width: 32px;
+  position: relative;
+  bottom: 415px;
+  right: 10px;
+}
+
+.card__delete-btn:hover {
+  background-image: url(../images/Delete\ Icon\ -\ Red.svg);
+  cursor: pointer;
+}
+
 @media screen and (max-width: 627px) {
   .card__image {
     height: 288px;
@@ -72,5 +88,12 @@
     height: 18px;
     background-size: contain;
     background-repeat: no-repeat;
+  }
+
+  .card__delete-btn {
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 290px;
+    right: 8px;
   }
 }
