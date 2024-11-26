@@ -70,6 +70,7 @@ function getCardElement(data) {
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
 
   //TODO - select the delete button
 
@@ -88,6 +89,15 @@ function getCardElement(data) {
 
     openModal(previewModal);
   });
+
+  //TODO - set listener on delete button
+  cardDeleteBtn.addEventListener("click", () => {
+    //remove(cardElement);
+    cardElement.remove();
+  });
+
+  // handler should remove card from the DOM
+  // basics of dom in chapter 4 will show how to do this
 
   return cardElement;
 }
