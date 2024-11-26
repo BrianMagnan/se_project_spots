@@ -63,9 +63,8 @@
   background-color: transparent;
   height: 32px;
   width: 32px;
-  position: relative;
-  bottom: 415px;
-  right: 10px;
+  position: absolute;
+  margin: 0 0 820px 365px;
 }
 
 .card__delete-btn:hover {
@@ -93,7 +92,6 @@
   .card__delete-btn {
     background-size: contain;
     background-repeat: no-repeat;
-    bottom: 290px;
-    right: 8px;
+    margin: 0 0 570px 245px;
   }
 }

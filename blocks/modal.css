@@ -84,6 +84,10 @@
   background-color: transparent;
 }
 
+.modal__close_type_preview:hover {
+  opacity: 0.5;
+}
+
 .modal__title {
   margin: 0 0 32px;
   font-weight: 500;
@@ -106,6 +110,10 @@
   border-width: 1px;
   color: #212121;
   font-weight: 500;
+}
+
+.modal__input:hover {
+  cursor: pointer;
 }
 
 .modal__submit-btn {
