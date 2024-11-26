@@ -15,6 +15,7 @@ https://www.figma.com/design/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project%3A-Spots?no
 - HTML
 - CSS
 - Responsive Design
+- JS
 
 ## Deployment
 
