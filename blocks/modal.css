@@ -173,8 +173,8 @@
   }
 
   .modal__close-btn_type_preview {
-    left: calc(100% - 60px);
-    top: -40px;
+    left: calc(100% - 40px);
+    top: -50px;
     width: 40px;
     height: 40px;
     opacity: 1;
