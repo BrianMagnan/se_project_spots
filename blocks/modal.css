@@ -139,9 +139,9 @@
     padding: 0 10px;
   }
 
-  /* .modal__container {
+  .modal__container {
     padding: 10px;
-  } */
+  }
   .modal__title {
     font-size: 20px;
     line-height: 20px;
@@ -182,5 +182,9 @@
   }
   .modal__image {
     min-width: 288px;
+  }
+
+  .modal__container_type_preview {
+    padding: 0;
   }
 }
