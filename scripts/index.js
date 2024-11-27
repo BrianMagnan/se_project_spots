@@ -57,8 +57,6 @@ const previewModalImageEl = previewModal.querySelector(".modal__image");
 const previewModalCaptionEl = previewModal.querySelector(".modal__caption");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
-// select other necessary elements
-
 //card related items
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
@@ -71,8 +69,6 @@ function getCardElement(data) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
-
-  //TODO - select the delete button
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
@@ -90,14 +86,9 @@ function getCardElement(data) {
     openModal(previewModal);
   });
 
-  //TODO - set listener on delete button
   cardDeleteBtn.addEventListener("click", () => {
-    //remove(cardElement);
     cardElement.remove();
   });
-
-  // handler should remove card from the DOM
-  // basics of dom in chapter 4 will show how to do this
 
   return cardElement;
 }
@@ -126,9 +117,10 @@ function handleAddCardSubmit(evt) {
   };
 
   const cardElement = getCardElement(inputValues);
-  cardList.append(cardElement);
+  cardList.prepend(cardElement);
 
   closeModal(cardModal);
+  evt.target.reset();
 }
 
 profileEditButton.addEventListener("click", () => {
