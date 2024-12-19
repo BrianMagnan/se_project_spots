@@ -121,12 +121,12 @@
 }
 
 .modal__input_type_error {
-  border: 1px solid rgb(33, 33, 33);
+  border: 1px solid #f00;
 }
 
 .modal__error {
-  /* use corrct color and font sizes */
-  color: red;
+  color: #f00;
+  font-weight: 500;
 }
 
 .modal__submit-btn {
