@@ -120,6 +120,15 @@
   cursor: pointer;
 }
 
+.modal__input_type_error {
+  border: 1px solid rgb(33, 33, 33);
+}
+
+.modal__error {
+  /* use corrct color and font sizes */
+  color: red;
+}
+
 .modal__submit-btn {
   width: 156px;
   height: 52px;
@@ -132,6 +141,11 @@
 .modal__submit-btn:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.modal__submit-btn:disabled {
+  background-color: black;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 627px) {
