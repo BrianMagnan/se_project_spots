@@ -1,3 +1,17 @@
+import "./index.css";
+
+// Import the image
+import stepsSrc from "../images/steps.png";
+
+// Select the element and set the src
+const stepsImage = document.getElementById("image-steps");
+// stepsImage.src = stepsSrc;
+
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+} from "../scripts/validation.js";
 const initialCards = [
   {
     name: "Val Thorens",
@@ -186,3 +200,5 @@ modals.forEach((modal) => {
 //     }
 //   });
 // });
+
+enableValidation(settings);
