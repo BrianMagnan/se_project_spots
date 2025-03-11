@@ -10,9 +10,6 @@ This is my project to replicate a web design from figma:
 
 https://www.figma.com/design/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project%3A-Spots?node-id=2-139&node-type=frame&t=7HauikDiAV1DY8ZE-0
 
-Site Link:
-https://brianmagnan.github.io/se_project_spots/
-
 ## Tech Stack
 
 - HTML
