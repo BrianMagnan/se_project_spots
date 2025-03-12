@@ -16,6 +16,7 @@ const api = new Api({
   },
 });
 
+//destructure the second item in the callback of the .then()
 api
   .getAppInfo()
   .then(([cards]) => {
@@ -23,6 +24,11 @@ api
       const cardElement = getCardElement(item);
       cardList.append(cardElement);
     });
+
+    //Handle the user's information
+    //set src of avatar image
+    //set text content of both the text elements
+    //"Bessie Coleman" should be replaced with "placeholder name"
   })
   .catch(console.error);
 
