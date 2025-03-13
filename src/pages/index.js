@@ -8,6 +8,14 @@ import {
 
 import Api from "../utils/Api.js";
 
+//Profile elements
+const profileAvatar = document.querySelector(".profile__avatar");
+const profileEditButton = document.querySelector(".profile__edit-btn");
+const cardModalBtn = document.querySelector(".profile__add-btn");
+const profileName = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__description");
+const modals = [...document.querySelectorAll(".modal")];
+
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -19,30 +27,23 @@ const api = new Api({
 //destructure the second item in the callback of the .then()
 api
   .getAppInfo()
-  .then(([cards]) => {
+  .then(([cards, userInfo]) => {
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardList.append(cardElement);
     });
 
-    //Handle the user's information
-    //set src of avatar image
-    //set text content of both the text elements
-    //"Bessie Coleman" should be replaced with "placeholder name"
+    profileName.textContent = userInfo.name;
+    profileDescription.textContent = userInfo.about;
+    profileAvatar.src = userInfo.avatar;
   })
   .catch(console.error);
-
-//Profile elements
-const profileEditButton = document.querySelector(".profile__edit-btn");
-const cardModalBtn = document.querySelector(".profile__add-btn");
-const profileName = document.querySelector(".profile__name");
-const profileDescription = document.querySelector(".profile__description");
-const modals = [...document.querySelectorAll(".modal")];
 
 //Form elements
 const editModal = document.querySelector("#edit-modal");
 const editForm = editModal.querySelector(".modal__form");
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
+const editSubmitBtn = editModal.querySelector(".modal__submit-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
@@ -118,13 +119,24 @@ function closeModal(modal) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  api
+    .editUserInfo({
+      name: editModalNameInput.value,
+      about: editModalDescriptionInput.value,
+    })
+    .then((data) => {
+      //TODO- use data argument instead of the input values
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+      closeModal(editModal);
+    })
+    .catch(console.error);
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  // cardSubmitBtn.textContent = "Saving...";
+
   const inputValues = {
     name: cardNameInput.value,
     link: cardLinkInput.value,
@@ -136,6 +148,8 @@ function handleAddCardSubmit(evt) {
 
   disableButton(cardSubmitBtn, settings);
   closeModal(cardModal);
+
+  // cardSubmitBtn.textContent = "Save";
 }
 
 profileEditButton.addEventListener("click", () => {
