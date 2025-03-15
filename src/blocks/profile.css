@@ -3,6 +3,7 @@
   padding: 34px 0 20px;
   border-bottom: 1px solid #21212166;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 .profile__add-btn {
@@ -24,13 +25,44 @@
   opacity: 80%;
 }
 
+.profile__avatar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 20px;
+}
+
+.profile__avatar-btn {
+  position: absolute;
+  color: #ffffff;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  top: 170px;
+  left: 35px;
+  gap: 8px;
+
+  visibility: hidden;
+}
+
+.profile__avatar-container:hover .profile__avatar-btn {
+  visibility: visible;
+}
+
+.profile__avatar-btn::after {
+  content: "Edit Avatar";
+}
+
 .profile__avatar {
   object-fit: cover;
   height: 190px;
   width: 190px;
-  margin-right: 20px;
   border-radius: 8px;
 }
+
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -82,6 +114,7 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   max-width: 420px;
+  z-index: 1;
 }
 
 @media screen and (max-width: 627px) {
@@ -91,11 +124,36 @@
     align-items: center;
     text-align: center;
     padding-top: 20px;
-    margin: 0 0 6px;
+    /* margin: 0 0 6px; */
+  }
+
+  .profile__avatar-btn {
+    background: #21212199;
+    border-radius: 6px;
+    top: 52px;
+    /* left: 75px; */
+    left: 58%;
+    transform: translateX(-50%);
+    gap: 8px;
+    width: 23.34px;
+    height: 23.34px;
+    visibility: visible;
+    padding-left: 14px;
+    padding-bottom: 3px;
+  }
+
+  .profile__avatar-btn::after {
+    content: "";
+  }
+
+  .profile__avatar-container {
+    margin-right: 0;
+    width: 100%;
   }
 
   .profile__avatar {
-    margin: 0 0 12px;
+    /* margin-left: 23px; */
+    margin: 0 auto;
     height: 80px;
     width: 80px;
   }
@@ -113,6 +171,7 @@
   }
 
   .profile__column {
+    align-items: center;
     font-size: 20px;
     margin: 0 0 6px;
   }
@@ -124,6 +183,7 @@
 
   .profile__edit-btn {
     padding: 0;
-    margin: 0 0 20px 20px;
+    /* margin: 0 0 20px 49px; */
+    margin: 0 0 20px 0px;
   }
 }
