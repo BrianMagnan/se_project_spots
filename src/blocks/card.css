@@ -72,7 +72,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 627px) {
+@media screen and (max-width: 745px) {
   .card__image {
     height: 288px;
   }
