@@ -161,5 +161,28 @@
         <p class="modal__caption"></p>
       </div>
     </div>
+    <!-- new form -->
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button class="modal__close-btn" type="button"></button>
+
+        <h2 class="modal__title">Edit Avatar</h2>
+        <form class="modal__form" id="edit-avatar-modal" name="edit-avatar">
+          <label class="modal__label" for="profile-avatar-input">
+            Avatar
+            <input
+              id="profile-avatar-input"
+              class="modal__input"
+              name="avatar"
+              placeholder="avatar goes here"
+              required
+            />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button class="modal__submit-btn" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <!-- new form -->
   </body>
 </html>
