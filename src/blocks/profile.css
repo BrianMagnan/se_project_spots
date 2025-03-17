@@ -152,7 +152,6 @@
   }
 
   .profile__avatar {
-    /* margin-left: 23px; */
     margin: 0 auto;
     height: 80px;
     width: 80px;
@@ -183,7 +182,6 @@
 
   .profile__edit-btn {
     padding: 0;
-    /* margin: 0 0 20px 49px; */
     margin: 0 0 20px 0px;
   }
 }

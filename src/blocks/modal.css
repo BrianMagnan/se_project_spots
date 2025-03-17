@@ -148,23 +148,7 @@
   opacity: 0.5;
 }
 
-.modal__delete {
-  font-family: Poppins, Arial, Helvetica, sans-serif;
-  visibility: hidden;
-  visibility: visible;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
+/* delete modal ------------------------------------ */
 .modal__delete-container {
   background-color: #fff;
   padding: 32px 50px;
@@ -174,6 +158,13 @@
   border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.modal__buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
 }
 
 .modal__delete-close-btn {
@@ -187,19 +178,13 @@
   background-color: transparent;
   border: transparent;
 }
+
 .modal__delete-title {
   margin: 0 0 32px;
   font-weight: 500;
   font-size: 24px;
   line-height: 1;
   width: auto;
-}
-
-.modal__buttons {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 32px;
 }
 
 .modal__delete-btn {
@@ -245,7 +230,7 @@
   .modal__title {
     font-size: 20px;
     line-height: 20px;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
     margin: 10px 0 34px;
   }
 
@@ -291,8 +276,6 @@
   /* delete modal------------------------- */
 
   .modal__delete-container {
-    visibility: hidden;
-    visibility: visible;
     padding: 0;
     position: absolute;
     max-width: 300px;

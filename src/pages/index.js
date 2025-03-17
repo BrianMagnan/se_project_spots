@@ -17,6 +17,7 @@ const avatarModalBtn = document.querySelector(".profile__avatar-btn");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 const modals = [...document.querySelectorAll(".modal")];
+let storeCardId = null;
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -66,6 +67,14 @@ const avatarSubmitBtn = avatarModal.querySelector(".modal__submit-btn");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
+//delete form elements
+const deleteModal = document.querySelector("#delete-modal");
+const deleteModalBtn = document.querySelector(".modal__delete-btn");
+const deleteModalCancelBtn = deleteModal.querySelector(".modal__cancel-btn");
+const deleteModalCloseBtn = deleteModal.querySelector(
+  ".modal__delete-close-btn"
+);
+
 //select modal
 const previewModal = document.querySelector("#preview-modal");
 const previewModalImageEl = previewModal.querySelector(".modal__image");
@@ -102,20 +111,31 @@ function getCardElement(data) {
   });
 
   cardDeleteBtn.addEventListener("click", () => {
-    cardDeleteBtn.textContent = "Deleting...";
-    api
-      .deleteCard(data._id)
-      .then(() => {
-        cardElement.remove();
-      })
-      .finally(() => {
-        cardDeleteBtn.textContent = "Delete";
-      });
+    storeCardId = {
+      id: data._id,
+      element: cardElement,
+    };
+    openModal(deleteModal);
   });
 
-  // .catch(console.error)
   return cardElement;
 }
+
+deleteModalBtn.addEventListener("click", () => {
+  deleteModalBtn.textContent = "Deleting...";
+  api
+    .deleteCard(storeCardId.id)
+    .then(() => {
+      storeCardId.element.remove();
+      closeModal(deleteModal);
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      deleteModalBtn.textContent = "Delete";
+    });
+});
 
 function handleEscape(event) {
   const currentModal = document.querySelector(".modal_opened");
@@ -250,12 +270,12 @@ modals.forEach((modal) => {
   });
 });
 
-// modals.forEach((modal) => {
-//   document.addEventListener("keydown", (evt) => {
-//     if (evt.key == "Escape") {
-//       closeModal(modal);
-//     }
-//   });
-// });
+deleteModalCancelBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
+
+deleteModalCloseBtn.addEventListener("click", () => {
+  closeModal(deleteModal);
+});
 
 enableValidation(settings);
