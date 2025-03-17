@@ -31,6 +31,9 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
+    console.log("Cards from API:", cards);
+
+    storeCardId = userInfo._id;
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardList.append(cardElement);
@@ -85,6 +88,24 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const cardTemplate = document.querySelector("#card-template");
 const cardList = document.querySelector(".cards__list");
 
+function handleLike(evt, id) {
+  const isLiked = evt.target.classList.contains("card__like-btn_liked");
+  const likeCountElement = evt.target
+    .closest(".card")
+    .querySelector(".card__like-count");
+
+  api
+    .handleLike(id, isLiked)
+    .then((response) => {
+      console.log(response);
+      evt.target.classList.toggle("card__like-btn_liked");
+      likeCountElement.textContent = response.likes ? response.likes : 0;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}
+
 function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
@@ -92,15 +113,18 @@ function getCardElement(data) {
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
+  const cardLikeCount = cardElement.querySelector(".card__like-count");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-btn");
+
+  if (data.isLiked) {
+    cardLikeBtn.classList.add("card__like-btn_liked");
+  }
+
+  cardLikeCount.textContent = data.likes ? data.likes : 0;
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
-
-  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-btn_liked");
-  });
 
   cardImageEl.addEventListener("click", () => {
     previewModalCaptionEl.textContent = data.name;
@@ -110,8 +134,9 @@ function getCardElement(data) {
     openModal(previewModal);
   });
 
+  cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
   cardDeleteBtn.addEventListener("click", () => {
-    storeCardId = {
+    currentUserId = {
       id: data._id,
       element: cardElement,
     };
@@ -125,7 +150,8 @@ deleteModalBtn.addEventListener("click", () => {
   deleteModalBtn.textContent = "Deleting...";
   api
     .deleteCard(storeCardId.id)
-    .then(() => {
+    .then((response) => {
+      console.log(response.message); // This will show "This post has been deleted"
       storeCardId.element.remove();
       closeModal(deleteModal);
     })

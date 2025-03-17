@@ -63,6 +63,22 @@
   border-radius: 8px;
 }
 
+.profile__avatar-overlay {
+  position: absolute;
+  object-fit: cover;
+  height: 190px;
+  width: 190px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+}
+
+.profile__avatar-container:hover .profile__avatar-overlay {
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
 .profile__column {
   display: flex;
   flex-direction: column;
@@ -153,6 +169,11 @@
 
   .profile__avatar {
     margin: 0 auto;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__avatar-overlay {
     height: 80px;
     width: 80px;
   }
