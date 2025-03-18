@@ -31,8 +31,6 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([cards, userInfo]) => {
-    console.log("Cards from API:", cards);
-
     storeCardId = userInfo._id;
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
@@ -97,7 +95,6 @@ function handleLike(evt, id) {
   api
     .handleLike(id, isLiked)
     .then((response) => {
-      console.log(response);
       evt.target.classList.toggle("card__like-btn_liked");
       likeCountElement.textContent = response.likes ? response.likes : 0;
     })
@@ -136,7 +133,7 @@ function getCardElement(data) {
 
   cardLikeBtn.addEventListener("click", (evt) => handleLike(evt, data._id));
   cardDeleteBtn.addEventListener("click", () => {
-    currentUserId = {
+    storeCardId = {
       id: data._id,
       element: cardElement,
     };
@@ -148,6 +145,7 @@ function getCardElement(data) {
 
 deleteModalBtn.addEventListener("click", () => {
   deleteModalBtn.textContent = "Deleting...";
+  deleteModalBtn.disabled = true;
   api
     .deleteCard(storeCardId.id)
     .then((response) => {
@@ -160,6 +158,7 @@ deleteModalBtn.addEventListener("click", () => {
     })
     .finally(() => {
       deleteModalBtn.textContent = "Delete";
+      deleteModalBtn.disabled = false;
     });
 });
 
@@ -185,6 +184,7 @@ function closeModal(modal) {
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   editSubmitBtn.textContent = "Saving...";
+  editSubmitBtn.disabled = true;
   api
     .editUserInfo({
       name: editModalNameInput.value,
@@ -193,18 +193,20 @@ function handleEditFormSubmit(evt) {
     .then((data) => {
       profileName.textContent = data.name;
       profileDescription.textContent = data.about;
+
       closeModal(editModal);
     })
     .catch(console.error)
     .finally(() => {
       editSubmitBtn.textContent = "Save";
+      editSubmitBtn.disabled = false;
     });
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   cardSubmitBtn.textContent = "Saving...";
-
+  cardSubmitBtn.disabled = true;
   const inputValues = {
     name: cardNameInput.value,
     link: cardLinkInput.value,
@@ -222,6 +224,7 @@ function handleAddCardSubmit(evt) {
     .catch(console.error)
     .finally(() => {
       cardSubmitBtn.textContent = "Save";
+      cardSubmitBtn.disabled = false;
     });
 }
 
@@ -231,7 +234,7 @@ function handleAvatarSubmit(evt) {
   evt.preventDefault();
 
   avatarSubmitBtn.textContent = "Saving...";
-
+  avatarSubmitBtn.disabled = true;
   api
     .editAvatarInfo({
       avatar: avatarInput.value,
@@ -244,6 +247,7 @@ function handleAvatarSubmit(evt) {
     .catch(console.error)
     .finally(() => {
       avatarSubmitBtn.textContent = "Save";
+      avatarSubmitBtn.disabled = false;
     });
 }
 

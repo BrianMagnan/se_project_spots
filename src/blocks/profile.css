@@ -113,8 +113,11 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
+  display: box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
+  box-orient: vertical;
   max-width: 420px;
 }
 
@@ -127,8 +130,11 @@
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
+  display: box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
+  box-orient: vertical;
   max-width: 420px;
   z-index: 1;
 }
@@ -140,14 +146,13 @@
     align-items: center;
     text-align: center;
     padding-top: 20px;
-    /* margin: 0 0 6px; */
   }
 
   .profile__avatar-btn {
     background: #21212199;
+    opacity: 0.6;
     border-radius: 6px;
     top: 52px;
-    /* left: 75px; */
     left: 58%;
     transform: translateX(-50%);
     gap: 8px;
@@ -180,7 +185,7 @@
 
   .profile__name {
     font-size: 20px;
-    margin: 0 0 6px;
+    margin: 15px 0 8px;
   }
 
   .profile__description {
@@ -192,8 +197,6 @@
 
   .profile__column {
     align-items: center;
-    font-size: 20px;
-    margin: 0 0 6px;
   }
 
   .profile__add-btn {
