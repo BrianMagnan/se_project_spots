@@ -163,8 +163,8 @@ deleteModalBtn.addEventListener("click", () => {
 });
 
 function handleEscape(event) {
-  const currentModal = document.querySelector(".modal_opened");
   if (event.key == "Escape") {
+    const currentModal = document.querySelector(".modal_opened");
     closeModal(currentModal);
   }
 }
@@ -243,6 +243,7 @@ function handleAvatarSubmit(evt) {
       profileAvatar.src = data.avatar;
       closeModal(avatarModal);
       avatarForm.reset();
+      disableButton(avatarSubmitBtn, settings);
     })
     .catch(console.error)
     .finally(() => {
