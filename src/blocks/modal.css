@@ -148,18 +148,89 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 627px) {
+/* delete modal ------------------------------------ */
+.modal__delete-container {
+  background-color: #fff;
+  padding: 32px 50px;
+  max-width: 630px;
+  max-height: 172px;
+  position: relative;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal__buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.modal__delete-close-btn {
+  position: absolute;
+  right: -60px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/white\ X.svg);
+  background-size: cover;
+  background-color: transparent;
+  border: transparent;
+}
+
+.modal__delete-title {
+  margin: 0 0 32px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+  width: auto;
+}
+
+.modal__delete-btn {
+  width: 156px;
+  height: 52px;
+  padding: 18px 0;
+  background-color: #ff6565;
+  color: #000000;
+  border-radius: 8px;
+  border: none;
+}
+
+.modal__delete-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.modal__cancel-btn {
+  width: 156px;
+  height: 52px;
+  padding: 18px 0;
+  background-color: transparent;
+  color: #000000;
+  border-radius: 8px;
+  border-width: 1px;
+}
+
+.modal__cancel-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 745px) {
   .modal {
     padding: 0 10px;
   }
 
   .modal__container {
     padding: 10px;
+    position: absolute;
+    max-width: 300px;
   }
   .modal__title {
     font-size: 20px;
     line-height: 20px;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
     margin: 10px 0 34px;
   }
 
@@ -200,5 +271,41 @@
 
   .modal__container_type_preview {
     padding: 0;
+  }
+
+  /* delete modal------------------------- */
+
+  .modal__delete-container {
+    padding: 0;
+    position: absolute;
+    max-width: 300px;
+    max-height: none;
+    width: 100%;
+    height: 214px;
+  }
+
+  .modal__buttons {
+    margin: 0 auto;
+    flex-direction: column;
+    width: 156px;
+    height: 116px;
+    position: relative;
+    top: 16px;
+  }
+
+  .modal__delete-title {
+    font-size: 20px;
+    margin: 10px 24px 10px;
+    line-height: 120%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    top: 5px;
+  }
+  .modal__delete-close-btn {
+    position: absolute;
+    top: -60px;
+    right: 12px;
   }
 }

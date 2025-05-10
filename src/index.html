@@ -10,17 +10,6 @@
     <title>Spots</title>
   </head>
   <body>
-    <!-- new sprint 9 code -->
-    <!-- <h1 class="page__title">Hello from Webpack!</h1> -->
-    <!-- <h2 class="page__subtitle">Image and Font Files Processing!</h2> -->
-    <!-- <img id="image-steps" class="page__image" src="./images/steps.png" /> -->
-    <!-- <div class="page__image page__image_achievements"></div> -->
-    <!-- <img
-      class="page__image"
-      src="<%= require('./images/website-contacts.jpg')%>"
-    /> -->
-
-    <!-- new sprint 9 code end -->
     <div class="page">
       <header class="header">
         <img
@@ -28,15 +17,24 @@
           alt="Spot Logo"
           class="header__logo"
         />
-        <!-- <img src="./images/Logo.svg" alt="Spot logo" class="header__logo" /> -->
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/avatar.jpg')%>"
-            alt="Bessie Coleman"
-            class="profile__avatar"
-          />
+          <div class="profile__avatar-container">
+            <div class="profile__avatar-overlay"></div>
+            <button class="profile__avatar-btn">
+              <img
+                class="profile__pencil-icon"
+                src="<%=require('./images/pencil-white.svg')%>"
+                alt="Pencil icon"
+              />
+            </button>
+            <img
+              src="<%=require('./images/avatar.jpg')%>"
+              alt="Bessie Coleman"
+              class="profile__avatar"
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -60,7 +58,9 @@
                 <div class="card__content">
                   <h2 class="card__title"></h2>
                   <button class="card__delete-btn"></button>
+                  <div class="card__like-container"></div>
                   <button type="button" class="card__like-btn"></button>
+                  <span class="card__like-count"></span>
                 </div>
               </li>
             </template>
@@ -162,6 +162,43 @@
         ></button>
         <img class="modal__image" src="#" alt="" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__container">
+        <button class="modal__close-btn" type="button"></button>
+
+        <h2 class="modal__title">Edit Avatar</h2>
+        <form class="modal__form" id="edit-avatar-modal" name="edit-avatar">
+          <label class="modal__label" for="profile-avatar-input" type="url">
+            Avatar
+            <input
+              id="profile-avatar-input"
+              class="modal__input"
+              name="avatar"
+              placeholder="Paste image URL here"
+              type="url"
+              required
+            />
+            <span id="profile-avatar-input-error" class="modal__error"></span>
+          </label>
+          <button class="modal__submit-btn" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="delete-modal">
+      <div class="modal__delete-container">
+        <button class="modal__delete-close-btn" type="button"></button>
+
+        <h2 class="modal__delete-title">
+          Are you sure you want to delete this image?
+        </h2>
+        <div class="modal__buttons">
+          <button class="modal__delete-btn" type="submit">Delete</button>
+          <button class="modal__cancel-btn" type="button">Cancel</button>
+        </div>
       </div>
     </div>
   </body>

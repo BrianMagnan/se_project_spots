@@ -7,7 +7,6 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
-  max-width: 350px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -36,22 +35,20 @@
   height: 20px;
   border: none;
   background-color: transparent;
-  opacity: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
+  opacity: 0.4;
+  transition: 0.3s;
 }
 
 .card__like-btn:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .card__like-btn_liked {
   background-image: url(../images/Union.svg);
-  width: 23px;
-  height: 20px;
-  border: none;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  opacity: 100%;
+  opacity: 1;
 }
 .card__like-btn_liked:hover {
   background-image: url(../images/Union-Hover.svg);
@@ -72,9 +69,18 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 627px) {
+.card__like-count {
+  display: none;
+}
+
+@media screen and (max-width: 745px) {
+  .card {
+    margin: auto;
+  }
+
   .card__image {
     height: 288px;
+    width: 288px;
   }
 
   .card__title {
